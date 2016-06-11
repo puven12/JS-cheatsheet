@@ -1,0 +1,447 @@
+\documentclass{article}
+\title{Javascript Cheatsheet}
+\author{Puvendran Pillay}
+% Taken from Lena Herrmann at
+% http://lenaherrmann.net/2010/05/20/javascript-syntax-highlighting-in-the-latex-listings-package
+\usepackage{listings}
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\bfseries,
+  %identifierstyle=,
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\ttfamily,
+  stringstyle=\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   %backgroundcolor=,
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+\begin{document}
+  \maketitle
+  \section{Comments}
+    \begin{lstlisting}
+      // in-line comment
+      /* multi-line
+      comment */
+    \end{lstlisting}
+  \section{Datatypes}
+    \begin{enumerate}
+      \item undefined
+      \item  null
+      \item  boolean
+      \item  string
+      \item  number
+      \item  object
+      \item  array
+      \item  float
+    \end{enumerate}
+  \section{Variables}
+    \begin{enumerate}
+      \item Declare variable
+        \begin{lstlisting}
+          var ourName;
+        \end{lstlisting}
+      \item Assign value to a variable
+        \begin{lstlisting}
+          ourName = "something";
+        \end{lstlisting}
+      \item Can also be done once
+        \begin{lstlisting}
+          var ourName = "something";
+        \end{lstlisting}
+        \item Variable should be initialized when declared.
+        \item Javascript variables names are \emph{case-sensitive}.
+    \end{enumerate}
+  \section{Operators}
+      \begin{enumerate}
+        \item Arithmetic Operators
+          \begin{enumerate}
+            \item Addition
+              \begin{lstlisting}
+                var x = 5;     // assign the value 5 to x
+                var y = 2;     // assign the value 2 to y
+                var z = x + y  // assign the value 7 to z (x + y)
+                alert(z);      // outputs the value in an alert box
+              \end{lstlisting}
+            \item Subtraction
+              \begin{lstlisting}
+                var x = 5;     // assign the value 5 to x
+                var y = 2;     // assign the value 2 to y
+                var z = x - y  // assign the value 3 to z (x - y)
+                alert(z);      // outputs the value in an alert box
+              \end{lstlisting}
+            \item Multiplication
+              \begin{lstlisting}
+                var x = 5;     // assign the value 5 to x
+                var y = 2;     // assign the value 2 to y
+                var z = x * y  // assign the value 10 to z (x * y)
+                alert(z);      // outputs the value in an alert box
+              \end{lstlisting}
+            \item Division
+              \begin{lstlisting}
+                var x = 5;     // assign the value 5 to x
+                var y = 2;     // assign the value 2 to y
+                var z = x / y  // assign the value 2.5 to z (x / y)
+                alert(z);      // outputs the value in an alert box
+              \end{lstlisting}
+            \item Modulus \textit{(returns the remainder of division)}
+              \begin{lstlisting}
+                var x = 5;     // assign the value 5 to x
+                var y = 2;     // assign the value 2 to y
+                var z = x % y  // assign the value 1 to z (x % y)
+                alert(z);      // outputs the value in an alert box
+              \end{lstlisting}
+            \item Increment
+              \begin{lstlisting}
+              //same as var x = x + 1;
+              var x = 0;       // assigns the value of 0 to x
+              x++;             // increases the value by 1
+              alert(x);        // outputs the value in an alert box
+              \end{lstlisting}
+            \item Decrement
+              \begin{lstlisting}
+              //same as var x = x - 1;
+              var x = 0;       // assigns the value of 0 to x
+              x--;             // Decreases the value by 1
+              alert(x);        // outputs the value in an alert box
+              \end{lstlisting}
+          \end{enumerate}
+        \item Assignment Operators
+        \begin{enumerate}
+          \item assignment (=)
+            \begin{lstlisting}
+              var x = 10;
+              alert(x);  // outputs the value in an alert box
+            \end{lstlisting}
+          \item Addition assignment
+            \begin{lstlisting}
+              var x = 10;
+              x += 5;    // same as x = x + 5;
+              alert(x);  // outputs the value in an alert box
+            \end{lstlisting}
+          \item Subtraction assignment
+            \begin{lstlisting}
+              var x = 10;
+              x -= 5;    // same as x = x - 5;
+              alert(x);  // outputs the value in an alert box
+            \end{lstlisting}
+          \item Multiplication assignment
+            \begin{lstlisting}
+              var x = 10;
+              x *= 5;    // same as x = x * 5;
+              alert(x);  // outputs the value in an alert box
+            \end{lstlisting}
+          \item Division assignment
+            \begin{lstlisting}
+              var x = 10;
+              x /= 5;    // same as x = x / 5;
+              alert(x);  // outputs the value in an alert box
+            \end{lstlisting}
+          \item Modulus assignment
+            \begin{lstlisting}
+              var x = 10;
+              x %= 5;    // same as x = x % 5;
+              alert(x);  // outputs the value in an alert box
+            \end{lstlisting}
+        \end{enumerate}
+      \end{enumerate}
+  \section{Escape Characters}
+    \begin{enumerate}
+      \item Single quote (\textbackslash')
+      \item Double quote (\textbackslash")
+      \item Backsplash (\textbackslash\textbackslash)
+      \item New line (\textbackslash n)
+      \item Carriage return (\textbackslash r)
+      \item Tab (\textbackslash t)
+      \item Backspace (\textbackslash b)
+      \item Form Feed (\textbackslash f)
+      \item Examples
+        \begin{lstlisting}
+          var x = 'It\'s alright';
+          var y = "We are the so-called \"Vikings\" from the north."
+        \end{lstlisting}
+    \end{enumerate}
+  \section{Concatenation}
+      \begin{enumerate}
+        \item Concatenate String with another string
+          \begin{lstlisting}
+            var x = "Hello";
+            var y = "World!";
+            alert(x + " " + y); // outputs x and y with space in the middle
+          \end{lstlisting}
+        \item Concatenate String with a variable
+          \begin{lstlisting}
+            var x = "Hello";
+            x += "World!";  // attaches the word to x
+            alert(x);
+          \end{lstlisting}
+      \end{enumerate}
+  \section{".length" Property}
+    Used to find the total number of characters contained
+    \begin{lstlisting}
+      var x ="Hello World!";
+      alert(x.length);
+    \end{lstlisting}
+  \section{"[]"}
+    Used to index character \emph{(Javascript starts counting from 0 not 1)}
+      \begin{lstlisting}
+        var x ="Hello World!";
+        alert(x[1]); //selects "e" from "Hello"
+      \end{lstlisting}
+    Strings are immutable that means you can't change individual characters in them.
+      \begin{lstlisting}
+        var x = "Jello World";
+        x[1] ="H"; //it just doesn't work
+        x = "Hello World";  // you must change it completely
+      \end{lstlisting}
+  \section{Arrays}
+    \begin{enumerate}
+      \item One dimensional array
+        \begin{lstlisting}
+          var x = ["Hello" , "World"];
+        \end{lstlisting}
+      \item Multi-dimensional array
+        \begin{lstlisting}
+          var x =[["Hello" , "World"] , ["Good" , "Bye"]];
+        \end{lstlisting}
+      \item Arrays are mutable and data can be changed individually
+      \item "[]" are also used to index arrays
+        \begin{lstlisting}
+          var x =[["Hello" , "World"] , ["Good" , "Bye"]];
+          alert(x[1][0]); // outputs "Good"
+        \end{lstlisting}
+      \item ".push()" property
+        Used to append data \emph{to "push in from the back"}
+          \begin{lstlisting}
+            var x = ["Hello" , "World"];
+            x.push(["Nasi" , "Lemak"]);
+            alert(x);
+          \end{lstlisting}
+      \item ".pop()" property
+        Used to unappend data \emph{to "pop out the back"}
+          \begin{lstlisting}
+            var x = ["Hello" , "World"];
+            x.push();
+            alert(x);
+          \end{lstlisting}
+      \item ".shift()" property
+        Used to unprepend data \emph{to "shift out the front"}
+          \begin{lstlisting}
+            var x = ["Hello" , "World"];
+            x.push();
+            alert(x);
+          \end{lstlisting}
+      \item ".unshift()" property
+        Used to prepend data \emph{to "unshift the front"}
+          \begin{lstlisting}
+            var x = ["Hello" , "World"];
+            x.unshift(["Nasi" , "Lemak"]);
+            alert(x);
+          \end{lstlisting}
+    \end{enumerate}
+  \section{Functions}
+    \begin{enumerate}
+      \item Use the keyword "function" to create a function
+        \begin{lstlisting}
+          function favFood(){
+            alert("I like eating my favourite food");
+          }
+        \end{lstlisting}
+      \item Functions can have arguments
+          \begin{lstlisting}
+            function favFood(name , food){
+              var name = prompt("What is your name?");
+              var food = prompt("What is your favourite food?");
+              alert( name + " " + "like eating" + " " + food);
+            }
+          \end{lstlisting}
+      \item Scopes
+        Scope is the visiblity of variables
+        \begin{enumerate}
+          \item Local scope \emph{(only available within functions)}
+            \begin{lstlisting}
+              function favFood(name , food){
+                var name = prompt("What is your name?");  // Local scope!
+                var food = prompt("What is your favourite food?");  // Local scope!
+                alert( name + " " + "like eating" + " " + food );
+              }
+              alert( name + " " + "likes" + " " + food );
+            \end{lstlisting}
+          \item Global scope \emph{(available everywhere)}
+            \begin{lstlisting}
+              var name; // declare outside
+              var food; // the function to make it global
+
+              function favFood(name , food){
+                name = prompt("What is your name?");
+                food = prompt("What is your favourite food?");
+                alert( name + " " + "like eating" + " " + food );
+              }
+              alert( name + " " + "likes"+ " " + food );  // can be used again
+            \end{lstlisting}
+          \item Local scope takes predence over Global scope
+        \end{enumerate}
+      \item "return" statement
+      The return statement stops the execution of a function and returns a value from that function.
+        \begin{lstlisting}
+          function helloWorld(){
+            return 1 + 1;
+          }
+        \end{lstlisting}
+    \end{enumerate}
+  \section{Boolean}
+  Boolean are either True or False
+  \section{Conditional Statements}
+  Used to specify a block of code to execute, if conditions are true
+    \begin{enumerate}
+      \item If...elseif...else Statements
+      \begin{lstlisting}
+        var age = 20;
+        // this condition is false, so the code moves to the next one
+        if (age < 17){
+        alert("You can't drive!");
+        } elseif (age > 17){
+        alert("You can drive!");
+        }else{
+        alert("You should drive!");
+        }
+      \end{lstlisting}
+      \item Comparison and Logical Operators
+      \begin{enumerate}
+        \item Equal (==)
+        \item Strict Equal (===)
+        \item Not Equal (!=)
+        \item Not Strict Equal (!==)
+        \item Greater than (\textgreater)
+        \item Greater than or Equal to (\textgreater=)
+        \item Less than (\textless)
+        \item Less than or Equal to (\textless=)
+        \item AND operator ({\&}{\&})
+        \item OR operator (\textbar\textbar)
+      \end{enumerate}
+      \item Switch Statements
+      The switch expression is evaluated once. The value of the expression is compared with the values of each case. If there is a match, the associated block of code is executed.
+        \begin{lstlisting}
+          var age = 20;
+          switch (age){
+          case 16:
+            alert("You can't drive!");
+            break;
+          case 17:
+          case 18:
+          case 19:
+          case 20:
+            alert("You can drive!");
+            break;
+          default:
+            alert("You should drive!");
+          }
+        \end{lstlisting}
+    \end{enumerate}
+  \section{Objects}
+  Objects contains more than one value
+    \begin{enumerate}
+      \item Example
+        \begin{lstlisting}
+          var dog ={
+            "name":"Clifford",
+            "legs": 4,
+            "goodBoy": TRUE,
+            };
+        \end{lstlisting}
+      \item Methods
+      Used to change data in a object
+        \begin{enumerate}
+          \item (.) or ([]) to access properties in an object
+            \begin{lstlisting}
+              var dog ={
+                "name":"Clifford",
+                "legs": 4,
+                "goodBoy": TRUE,
+                };
+                alert(dog.name);
+            \end{lstlisting}
+          \item ".delete" method
+          to remove the properties
+          \item "hasOwnProperty()" method
+          to check whether property exists
+        \end{enumerate}
+    \end{enumerate}
+  \section{"for" Loop}
+  Loops can execute a block of code a number of times
+    \begin{lstlisting}
+      function counter(){
+        var count="";
+        var i;
+        for (i = 0; i < 5; i++){
+        count += "Counting" + i;}
+        console.log(count);
+      }
+      counter();
+    \end{lstlisting}
+  \section{Math Function}
+    \begin{enumerate}
+      \item "Math.random()" function
+      to generate a random number between 0 and 1
+      \item "Math.floor()" function
+      to round down a number to the nearest integer
+    \end{enumerate}
+  \section{Regular Expression}
+  A regular expression is a sequence of characters that forms a search pattern. The search pattern can be used for text search and text replace operations.
+    \begin{enumerate}
+      \item Example
+        \begin{lstlisting}
+          var text = "this is a text"
+          var i =/this/gi //search term in between two //
+          var thisCount = testString.match(i).length;
+          alert(thisCount);
+        \end{lstlisting}
+      \item "g" expression \emph{(global)}
+      to find all matches
+      \item "i" expression
+      to ignore case-sensitivity
+      \item  "\textbackslash d"
+      to retrieve digits
+      \item "\textbackslash s"
+      to find whitespace
+      \item  "\textbackslash S"
+      to find non-whitespace
+      \item {( \textbackslash d+)}
+      to get multiple results
+    \end{enumerate}
+  \section{Constructor functions}
+  to add properties in an object
+  \begin{lstlisting}
+    var Car = function() {
+      //"this" refers to the new object being created by the constructor
+      this.wheels = 4;
+      this.engines = 1;
+      this.seats = 1;
+    };
+    //"new" keyword to call constructor
+    // name of contructor is CAPITALIZED
+    var myCar =  new Car(); {
+      this.wheels = 4;
+      myCar.nickname = "Vroom";
+    }
+  \end{lstlisting}
+\end{document}
